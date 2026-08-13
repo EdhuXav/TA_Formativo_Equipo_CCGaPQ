@@ -95,7 +95,6 @@
     \vfill
 
 \end{titlepage}
-
 \tableofcontents
 \newpage
 
@@ -157,7 +156,135 @@ en una escala de 1 a 10. Las historias se ordenan priorizando las capacidades ne
 para mantener la cadena de trazabilidad desde el ingreso hasta la venta.
 
 \newpage
+\section{Historias de Usuario y Criterios BDD}
 
+\subsection{HU-01 -- Registrar proveedor}
+\textbf{Épica:} EPIC-01 -- Ingreso, Proveedores y Guías de Origen\\
+\textbf{Prioridad:} Must Have \quad \textbf{Referencia:} RF-01 / CU-01
+
+\medskip
+\textbf{Historia de usuario:}\\
+Como \textbf{propietaria}, quiero registrar los datos de un proveedor para mantener
+identificada la procedencia de los productos y animales que ingresan al sistema.
+
+\begin{tcolorbox}[colback=lightblue,colframe=uteqblue,title=\textbf{BDD -- Criterio de aceptación}]
+\textbf{Given:} que la propietaria ha iniciado sesión y se encuentra en el módulo de proveedores.
+
+\medskip
+\textbf{When:} ingresa los datos requeridos del proveedor y selecciona la opción ``Guardar''.
+
+\medskip
+\textbf{Then:} el sistema valida los datos, registra el proveedor con un identificador único
+y confirma que el registro fue almacenado correctamente.
+\end{tcolorbox}
+
+\subsection{HU-02 -- Registrar guía de origen}
+\textbf{Épica:} EPIC-01 -- Ingreso, Proveedores y Guías de Origen\\
+\textbf{Prioridad:} Must Have \quad \textbf{Referencia:} RF-02 / CU-02
+
+\medskip
+\textbf{Historia de usuario:}\\
+Como \textbf{propietaria}, quiero registrar la guía de origen asociada a un proveedor
+para conservar la evidencia documental del origen del lote.
+
+\begin{tcolorbox}[colback=lightblue,colframe=uteqblue,title=\textbf{BDD -- Criterio de aceptación}]
+\textbf{Given:} que existe un proveedor registrado y la guía contiene la información requerida.
+
+\medskip
+\textbf{When:} la propietaria registra la guía y la vincula al proveedor correspondiente.
+
+\medskip
+\textbf{Then:} el sistema almacena la guía, genera su asociación con el proveedor y permite
+consultarla posteriormente como evidencia de origen.
+\end{tcolorbox}
+
+\subsection{HU-03 -- Registrar ingreso de lote o animal}
+\textbf{Épica:} EPIC-01 -- Ingreso, Proveedores y Guías de Origen\\
+\textbf{Prioridad:} Must Have \quad \textbf{Referencia:} RF-03 / CU-03
+
+\medskip
+\textbf{Historia de usuario:}\\
+Como \textbf{encargado de bodega}, quiero registrar el ingreso de un lote o animal para
+iniciar su trazabilidad dentro de CarniCore.
+
+\begin{tcolorbox}[colback=lightblue,colframe=uteqblue,title=\textbf{BDD -- Criterio de aceptación}]
+\textbf{Given:} que existe un proveedor y una guía de origen previamente registrados.
+
+\medskip
+\textbf{When:} el encargado registra los datos del lote o animal, incluido su peso inicial.
+
+\medskip
+\textbf{Then:} el sistema genera un identificador de trazabilidad, registra la fecha de ingreso
+y relaciona el lote o animal con su proveedor y guía de origen.
+\end{tcolorbox}
+
+\subsection{HU-04 -- Registrar pesaje}
+\textbf{Épica:} EPIC-02 -- Pesaje, Despiece e Inventario en Cámaras\\
+\textbf{Prioridad:} Must Have \quad \textbf{Referencia:} RF-04 / CU-04
+
+\medskip
+\textbf{Historia de usuario:}\\
+Como \textbf{encargado de bodega}, quiero registrar el pesaje del animal o producto para
+obtener una medición confiable que sirva como base para el inventario y el despiece.
+
+\begin{tcolorbox}[colback=lightblue,colframe=uteqblue,title=\textbf{BDD -- Criterio de aceptación}]
+\textbf{Given:} que existe un lote o animal identificado en el sistema y está disponible para pesaje.
+
+\medskip
+\textbf{When:} el encargado realiza el pesaje y confirma el valor obtenido.
+
+\medskip
+\textbf{Then:} el sistema registra el peso, fecha, responsable y referencia del lote o animal,
+dejando el dato disponible para los procesos posteriores.
+\end{tcolorbox}
+
+\subsection{HU-05 -- Registrar despiece}
+\textbf{Épica:} EPIC-02 -- Pesaje, Despiece e Inventario en Cámaras\\
+\textbf{Prioridad:} Must Have \quad \textbf{Referencia:} RF-06 / CU-05
+
+\medskip
+\textbf{Historia de usuario:}\\
+Como \textbf{carnicero}, quiero registrar los cortes obtenidos durante el despiece para
+mantener la relación entre cada producto y el animal de origen.
+
+\begin{tcolorbox}[colback=lightblue,colframe=uteqblue,title=\textbf{BDD -- Criterio de aceptación}]
+\textbf{Given:} que existe un animal con peso registrado y está disponible para despiece.
+
+\medskip
+\textbf{When:} el carnicero registra los cortes y sus respectivos pesos.
+
+\medskip
+\textbf{Then:} el sistema valida que la suma de los pesos de los cortes se encuentre dentro
+del margen de merma permitido, registra los cortes y conserva su vínculo con el animal de origen.
+\end{tcolorbox}
+
+\subsection{HU-06 -- Ingresar producto a cámara}
+\textbf{Épica:} EPIC-02 -- Pesaje, Despiece e Inventario en Cámaras\\
+\textbf{Prioridad:} Must Have \quad \textbf{Referencia:} RF-07 / CU-06
+
+\medskip
+\textbf{Historia de usuario:}\\
+Como \textbf{encargado de bodega}, quiero ingresar los productos a una cámara frigorífica
+para conocer su ubicación y controlar su permanencia.
+
+\begin{tcolorbox}[colback=lightblue,colframe=uteqblue,title=\textbf{BDD -- Criterio de aceptación}]
+\textbf{Given:} que existe un producto generado por el proceso de despiece y una cámara disponible.
+
+\medskip
+\textbf{When:} el encargado selecciona la cámara e ingresa el producto al inventario.
+
+\medskip
+\textbf{Then:} el sistema registra la cámara de destino, la fecha de ingreso y actualiza
+la existencia del producto en inventario.
+\end{tcolorbox}
+
+
+
+
+
+
+
+\newpage
 \section{Definición de terminado (Definition of Done)}
 Una historia del Product Backlog se considerará terminada cuando cumpla, como mínimo, con
 los siguientes criterios:
@@ -172,6 +299,9 @@ los siguientes criterios:
 \item La documentación asociada se actualiza cuando la funcionalidad modifica reglas de negocio o requisitos.
 \end{itemize}
 
+\section{Trazabilidad del Backlog}
+
+\section{Conclusión}
 
 
 \end{document}
