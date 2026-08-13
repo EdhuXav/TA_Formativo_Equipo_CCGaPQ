@@ -418,8 +418,42 @@ los siguientes criterios:
 \end{itemize}
 
 \section{Trazabilidad del Backlog}
+Las historias de usuario se derivan de los requisitos y casos de uso del proyecto CarniCore.
+La relación principal queda resumida así:
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.4cm}
+>{\raggedright\arraybackslash}p{2.5cm}
+>{\raggedright\arraybackslash}p{3.4cm}
+>{\raggedright\arraybackslash}p{3.3cm}
+>{\raggedright\arraybackslash}p{2.1cm}}
+\toprule
+\textbf{Historia} & \textbf{Stakeholder} & \textbf{Requisito} & \textbf{Caso de uso} & \textbf{Prueba}\\
+\midrule
+HU-01 & Propietaria & RF-01 & CU-01 Registrar proveedor & TC-01\\
+HU-02 & Propietaria & RF-02 & CU-02 Registrar guía de origen & TC-02\\
+HU-03 & Bodega & RF-03 & CU-03 Registrar ingreso & TC-03\\
+HU-04 & Bodega & RF-04 & CU-04 Registrar pesaje & TC-04\\
+HU-05 & Carnicero & RF-06 & CU-05 Registrar despiece & TC-05\\
+HU-06 & Bodega & RF-07 & CU-06 Ingresar a cámara & TC-06\\
+HU-07 & Admin. general & RF-08 & CU-07 Alertar vida útil & TC-07\\
+HU-08 & Bodega & RF-10 & CU-09 Registrar venta & TC-09\\
+HU-09 & Propietaria & RF-11 & CU-10 Consultar trazabilidad & TC-10\\
+HU-10 & Propietaria & RF-13 & CU-11 Generar reportes & TC-13\\
+HU-11 & Bodega & RF-16 & CU-13 Consultar stock por fecha & TC-16\\
+HU-12 & Bodega & RF-21 & CU-16 Operar offline & TC-21\\
+\bottomrule
+\end{longtable}
 
 \section{Conclusión}
+El Product Backlog documentado concentra las funcionalidades prioritarias de CarniCore y
+las convierte en historias de usuario verificables. Los doce elementos cubren el flujo central
+del negocio: registrar el origen, ingresar y pesar productos, realizar el despiece, controlar
+el almacenamiento, gestionar ventas, consultar la trazabilidad, generar información gerencial
+y mantener la operación durante contingencias de conectividad.
 
+El uso de BDD mediante Given/When/Then permite reducir ambigüedades y establecer condiciones
+objetivas para la aceptación de cada historia. De esta manera, el backlog sirve simultáneamente
+como instrumento de planificación ágil, referencia para desarrollo y base para la elaboración
+de pruebas de aceptación.
 
 \end{document}
