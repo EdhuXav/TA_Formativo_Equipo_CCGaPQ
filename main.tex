@@ -1,0 +1,129 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{geometry}
+\geometry{margin=2.2cm}
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{titlesec}
+
+\definecolor{uteqblue}{RGB}{11,61,109}
+\definecolor{lightblue}{RGB}{235,243,250}
+\definecolor{lightgray}{RGB}{245,245,245}
+
+\hypersetup{colorlinks=true,linkcolor=uteqblue,urlcolor=uteqblue}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{UTEQ -- Ingeniería de Requisitos [ISR-401]}
+\fancyhead[R]{CarniCore -- Product Backlog}
+\fancyfoot[C]{\thepage}
+
+\titleformat{\section}{\large\bfseries\color{uteqblue}}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{uteqblue}}{\thesubsection.}{0.5em}{}
+
+\newcommand{\story}[5]{
+\subsection{#1 -- #2}
+\textbf{Épica:} #3 \hfill \textbf{Prioridad:} #4
+
+\medskip
+\textbf{Historia de usuario}\\
+#5
+
+\medskip
+\begin{tcolorbox}[colback=lightblue,colframe=uteqblue,title=\textbf{Criterios de aceptación BDD}]
+\textbf{Given (Dado que):} #1given
+
+\medskip
+\textbf{When (Cuando):} #1when
+
+\medskip
+\textbf{Then (Entonces):} #1then
+\end{tcolorbox}
+}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+
+    \textbf{\large UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO}\\[0.5cm]
+
+    \includegraphics[width=4cm]{logo.png}\\[0.5cm]
+
+    \textbf{INGENIERÍA DE REQUERIMIENTOS}\\[0.5cm]
+
+    \textbf{Link del Github}\\[0.5cm]
+
+    \url{https://github.com/EdhuXav/TA_Formativo_Equipo_CCGaPQ.git}\\[0.5cm]
+
+    \textbf{TEMA:}\\[0.3cm]
+
+    DOCUMENTAR EL PRODUCT BACKLOG.\\[0.5cm]
+
+    \textbf{INTEGRANTES:}\\[0.5cm]
+
+    CASTRO BAJAÑA ARIEL OMAR\\
+    CRESPO ESPINOZA KLEBER OBED\\
+    GAMARRA ARAUJO EDHU XAVIER\\
+    PEREZ RUIZ CARLOS ANDRES\\
+    QUINTERO GENDE ERICK JAHIR\\[0.5cm]
+
+    \textbf{ASIGNATURA:}\\[0.3cm]
+
+    INGENIERÍA DE REQUERIMIENTOS\\[0.3cm]
+
+    \textbf{CURSO:}\\[0.3cm]
+
+    4TO ``A'' SOFTWARE\\[0.3cm]
+
+    \textbf{FECHA:}\\[0.3cm]
+
+    12/08/2026\\[0.3cm]
+
+    \textbf{DOCENTE:}\\[0.3cm]
+
+    ING. GUERRERO ULLOA GLEISTON CICERON\\[0.5cm]
+
+    \vfill
+
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Introducción}
+El presente documento formaliza el \textbf{Product Backlog} del proyecto de fin de curso
+\textbf{CarniCore}, sistema orientado a la trazabilidad, pesaje inteligente e inventario de
+una distribuidora de cárnicos. El backlog se construye a partir de los requisitos funcionales,
+casos de uso y épicas definidos en el proyecto base.
+
+Cada elemento se expresa como una historia de usuario y dispone de criterios de aceptación
+en formato \textbf{BDD (Behavior-Driven Development)}, utilizando la estructura
+\textit{Given / When / Then} (Dado que / Cuando / Entonces). Esto permite que el comportamiento
+esperado sea verificable y facilita la posterior elaboración de casos de prueba.
+
+Las prioridades utilizan el esquema \textbf{MoSCoW}: \textit{Must Have}, \textit{Should Have},
+\textit{Could Have} y \textit{Won't Have}. Para este documento se incluyen doce historias,
+superando el mínimo solicitado de diez.
+
+\section{Épicas del producto}
+El proyecto CarniCore contempla las siguientes épicas principales:
+
+\begin{enumerate}[leftmargin=1.1cm]
+\item \textbf{EPIC-01:} Ingreso, Proveedores y Guías de Origen.
+\item \textbf{EPIC-02:} Pesaje, Despiece e Inventario en Cámaras.
+\item \textbf{EPIC-03:} Trazabilidad y Cumplimiento Regulatorio (Agrocalidad / LOPDP).
+\item \textbf{EPIC-04:} Ventas, Devoluciones y Reportes Gerenciales.
+\item \textbf{EPIC-05:} Contingencia Offline y Seguridad.
+\end{enumerate}
+
+
+\end{document}
