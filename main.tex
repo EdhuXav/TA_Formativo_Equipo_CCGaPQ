@@ -278,11 +278,129 @@ para conocer su ubicación y controlar su permanencia.
 la existencia del producto en inventario.
 \end{tcolorbox}
 
+\subsection{HU-07 -- Alertar vida útil}
+\textbf{Épica:} EPIC-02 -- Pesaje, Despiece e Inventario en Cámaras\\
+\textbf{Prioridad:} Must Have \quad \textbf{Referencia:} RF-08 / CU-07
 
+\medskip
+\textbf{Historia de usuario:}\\
+Como \textbf{administrador general}, quiero recibir alertas sobre la vida útil de los productos
+para evitar que permanezcan almacenados más allá del límite permitido.
 
+\begin{tcolorbox}[colback=lightblue,colframe=uteqblue,title=\textbf{BDD -- Criterio de aceptación}]
+\textbf{Given:} que un producto está registrado en una cámara y posee un límite de vida útil
+según su tipo.
 
+\medskip
+\textbf{When:} el sistema calcula que el producto se aproxima o alcanza el límite configurado.
 
+\medskip
+\textbf{Then:} el sistema genera una alerta indicando el producto, su ubicación y los días
+restantes de vida útil.
+\end{tcolorbox}
 
+\subsection{HU-08 -- Registrar venta}
+\textbf{Épica:} EPIC-04 -- Ventas, Devoluciones y Reportes Gerenciales\\
+\textbf{Prioridad:} Must Have \quad \textbf{Referencia:} RF-10 / CU-09
+
+\medskip
+\textbf{Historia de usuario:}\\
+Como \textbf{encargado de bodega}, quiero registrar una venta para descontar el producto
+vendido del inventario y mantener su trazabilidad hasta el cliente.
+
+\begin{tcolorbox}[colback=lightblue,colframe=uteqblue,title=\textbf{BDD -- Criterio de aceptación}]
+\textbf{Given:} que existe stock disponible y el producto está identificado mediante su lote
+o referencia de trazabilidad.
+
+\medskip
+\textbf{When:} el encargado registra la venta con cantidad y datos de referencia de la factura.
+
+\medskip
+\textbf{Then:} el sistema valida la disponibilidad, registra la venta, descuenta la cantidad
+vendida del inventario y conserva el vínculo con el lote de origen.
+\end{tcolorbox}
+
+\subsection{HU-09 -- Consultar trazabilidad}
+\textbf{Épica:} EPIC-03 -- Trazabilidad y Cumplimiento Regulatorio\\
+\textbf{Prioridad:} Must Have \quad \textbf{Referencia:} RF-11 / CU-10
+
+\medskip
+\textbf{Historia de usuario:}\\
+Como \textbf{propietaria}, quiero consultar la trazabilidad de un lote o animal para conocer
+su recorrido desde el origen hasta la venta.
+
+\begin{tcolorbox}[colback=lightblue,colframe=uteqblue,title=\textbf{BDD -- Criterio de aceptación}]
+\textbf{Given:} que existe un lote o animal registrado y tiene eventos de trazabilidad asociados.
+
+\medskip
+\textbf{When:} la propietaria busca el lote o animal mediante su identificador.
+
+\medskip
+\textbf{Then:} el sistema muestra la cadena de trazabilidad disponible, incluyendo origen,
+ingreso, pesaje, despiece, cámara y venta; si la cadena está incompleta, muestra el estado
+parcial como ``En proceso''.
+\end{tcolorbox}
+
+\subsection{HU-10 -- Generar reportes gerenciales}
+\textbf{Épica:} EPIC-04 -- Ventas, Devoluciones y Reportes Gerenciales\\
+\textbf{Prioridad:} Should Have \quad \textbf{Referencia:} RF-13 / CU-11
+
+\medskip
+\textbf{Historia de usuario:}\\
+Como \textbf{propietaria}, quiero generar reportes de las operaciones del negocio para
+analizar ventas, compras, pérdidas y trazabilidad.
+
+\begin{tcolorbox}[colback=lightblue,colframe=uteqblue,title=\textbf{BDD -- Criterio de aceptación}]
+\textbf{Given:} que existen registros de operaciones en el sistema.
+
+\medskip
+\textbf{When:} la propietaria selecciona un rango de fechas y los filtros disponibles.
+
+\medskip
+\textbf{Then:} el sistema genera un reporte con la información correspondiente al período
+seleccionado y permite consultar los resultados de forma organizada.
+\end{tcolorbox}
+
+\subsection{HU-11 -- Consultar stock por fecha}
+\textbf{Épica:} EPIC-02 -- Pesaje, Despiece e Inventario en Cámaras\\
+\textbf{Prioridad:} Should Have \quad \textbf{Referencia:} RF-16 / CU-13
+
+\medskip
+\textbf{Historia de usuario:}\\
+Como \textbf{encargado de bodega}, quiero consultar el stock existente a una fecha determinada
+para controlar las existencias históricas y actuales.
+
+\begin{tcolorbox}[colback=lightblue,colframe=uteqblue,title=\textbf{BDD -- Criterio de aceptación}]
+\textbf{Given:} que el sistema contiene movimientos de inventario registrados.
+
+\medskip
+\textbf{When:} el encargado selecciona una fecha y solicita la consulta de stock.
+
+\medskip
+\textbf{Then:} el sistema calcula y muestra las existencias correspondientes a esa fecha,
+indicando que el resultado es provisional cuando existan operaciones offline pendientes de sincronización.
+\end{tcolorbox}
+
+\subsection{HU-12 -- Operar sin conexión y sincronizar}
+\textbf{Épica:} EPIC-05 -- Contingencia Offline y Seguridad\\
+\textbf{Prioridad:} Must Have \quad \textbf{Referencia:} RF-21 / CU-16
+
+\medskip
+\textbf{Historia de usuario:}\\
+Como \textbf{encargado de bodega}, quiero registrar operaciones aunque no exista conexión
+a Internet para continuar trabajando durante interrupciones de conectividad.
+
+\begin{tcolorbox}[colback=lightblue,colframe=uteqblue,title=\textbf{BDD -- Criterio de aceptación}]
+\textbf{Given:} que el dispositivo se encuentra sin conectividad y el usuario tiene permisos
+para realizar operaciones.
+
+\medskip
+\textbf{When:} el encargado registra una operación mientras trabaja en modo offline.
+
+\medskip
+\textbf{Then:} el sistema almacena la operación localmente sin pérdida de información y,
+cuando se restablece la conectividad, sincroniza los registros pendientes con el servidor.
+\end{tcolorbox}
 
 \newpage
 \section{Definición de terminado (Definition of Done)}
